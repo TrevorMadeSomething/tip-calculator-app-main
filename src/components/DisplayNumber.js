@@ -4,11 +4,17 @@ import { GlobalContext } from '../context/GlobalState'
 
 
 export const DisplayNumber = () => {
-    const [bill, changeBill] = useState('');
-    const { updateBillAmount } = useContext(GlobalContext);
+    const [bill, changeBill] = useState({ bill: '' });
+    const { updateBillAmount, billAmount } = useContext(GlobalContext);
 
     const handleChange = () => {
+        console.log(billAmount)
+        console.log(bill)
         updateBillAmount(bill)
+        console.log("Bill Amount" + billAmount)
+        console.log(bill)
+
+
     }
 
 

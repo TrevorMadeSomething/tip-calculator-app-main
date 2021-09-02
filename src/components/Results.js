@@ -21,7 +21,6 @@ export const Results = () => {
         }
     }
 
-    console.log((billAmount * calculateTip()))
     return (
         <>
             <ResultsCard textFill={"Tip Amount"} numberFill={(billAmount * calculateTip())} />

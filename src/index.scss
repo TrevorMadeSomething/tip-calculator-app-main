@@ -175,3 +175,25 @@ body {
         }
     }
 }
+@media screen and (max-width: 40em) {
+    .largeCard {
+        width: 100vw;
+        height: 60vh;
+        background-color: var(--clr-White);
+        padding: 0;
+        border-radius: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .selectTipSection {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .selectTipSection > * {
+        flex: 1 1 1em;
+    }
+}

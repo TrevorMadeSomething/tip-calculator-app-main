@@ -23,7 +23,7 @@ export const BillAmount = () => {
                 <TipButton amount={"15%"} value={3} selected={buttonSelected === 3 && true} />
                 <TipButton amount={"25%"} value={4} selected={buttonSelected === 4 && true} />
                 <TipButton amount={"50%"} value={5} selected={buttonSelected === 5 && true} />
-                <CustomTipButton amount={"Custom"} value={6} selected={buttonSelected === 6 && true} />
+                <TipButton amount={"100%"} value={6} selected={buttonSelected === 6 && true} />
 
             </div>
 
