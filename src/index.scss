@@ -1,199 +1,286 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
 :root {
-    --clr-primary-Strong-cyan: hsl(172, 67%, 45%);
+  --clr-primary-Strong-cyan: hsl(172, 67%, 45%);
 
-    --clr-neutral-Very-dark-cyan: hsl(183, 100%, 15%);
-    --clr-neutral-Dark-grayish-cyan: hsl(186, 14%, 43%);
-    --clr-neutral-Light-grayish-cyan: hsl(189, 41%, 97%);
-    --clr-neutral-background-light-cyan: hsl(185, 41%, 84%);
-    --clr-neutral-light-background-text-box: hsl(185, 38%, 97%);
-    --clr-White: hsl(0, 0%, 100%);
+  --clr-neutral-Very-dark-cyan: hsl(183, 100%, 15%);
+  --clr-neutral-Dark-grayish-cyan: hsl(186, 14%, 43%);
+  --clr-neutral-Light-grayish-cyan: hsl(189, 41%, 97%);
+  --clr-neutral-background-light-cyan: hsl(185, 41%, 84%);
+  --clr-neutral-light-background-text-box: hsl(185, 38%, 97%);
+  --clr-White: hsl(0, 0%, 100%);
 
-    --ff-primary: Space Mono, sans-serif;
+  --ff-primary: Space Mono, sans-serif;
+}
+
+$breakPointWidth: 575px;
+$breakPointMinWidth: 576px;
+$desktop-width: 950px;
+@mixin mobile {
+  @media (max-width: #{$breakPointWidth}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--clr-neutral-background-light-cyan);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    height: 100vh;
-    font-family: var(--ff-primary);
+  background-color: var(--clr-neutral-background-light-cyan);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--ff-primary);
 }
 
 .titleHeading {
-    padding-bottom: 150px;
-    color: var(--clr-neutral-Very-dark-cyan);
-    font-weight: 700;
-    letter-spacing: 10px;
-    font-size: 40px;
+  padding-bottom: 150px;
+  color: var(--clr-neutral-Very-dark-cyan);
+  font-weight: 700;
+  letter-spacing: 10px;
+  font-size: 40px;
 }
 
 .largeCard {
-    width: 40vw;
-    height: 40vh;
+  width: 40vw;
+  height: 40vh;
+  background-color: var(--clr-White);
+  border-radius: 2.5rem;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.rightCard {
+  background-color: var(--clr-neutral-Very-dark-cyan);
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+
+  .resultsCardWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .resultsAmount {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--clr-primary-Strong-cyan);
+  }
+
+  .resultsDesc {
+    color: var(--clr-White);
+    text-align: left;
+  }
+  .greySubText {
+    color: #7f9d9f;
+  }
+
+  .resetButton {
+    width: 100%;
+    font-family: var(--ff-primary);
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--clr-primary-Strong-cyan);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.65rem;
+    margin-top: auto;
+  }
+}
+.leftCard {
+  background-color: var(--clr-White);
+  width: 50%;
+  height: 100%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .section {
+    text-align: left;
+  }
+
+  .numberDisplay {
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    background-color: inherit;
+    text-align: right;
+    font-family: var(--ff-primary);
+    color: var(--clr-neutral-Very-dark-cyan);
+  }
+
+  .leftDescriptor {
+    color: var(--clr-neutral-Very-dark-cyan);
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+  }
+
+  .billAndAmountSection,
+  .numberOfPeopleSection {
+    .displayLine {
+      background-color: var(--clr-neutral-light-background-text-box);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0.5rem 1.063rem;
+      font-size: 24px;
+    }
+  }
+
+  .selectTipSection {
+    .tipButton {
+      font-family: inherit;
+      font-size: inherit;
+      border: none;
+      background-color: var(--clr-neutral-Very-dark-cyan);
+      color: white;
+      border-radius: 0.75rem;
+      width: 31%;
+      margin: 0.6rem 0.3rem;
+      padding: 0.8rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    .customTipButton {
+      font-family: inherit;
+      font-size: inherit;
+      border: none;
+      background-color: var(--clr-neutral-background-light-cyan);
+      color: var(--clr-neutral-dark-grayish-cyan);
+      border-radius: 0.75rem;
+      width: 31%;
+      margin: 0.6rem 0.3rem;
+      padding: 0.8rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    .selectedButton {
+      font-family: inherit;
+      font-weight: bold;
+      font-size: inherit;
+      border: none;
+      background-color: var(--clr-primary-Strong-cyan);
+      color: var(--clr-neutral-Very-dark-cyan);
+      border-radius: 0.75rem;
+      width: 31%;
+      margin: 0.6rem 0.3rem;
+      padding: 0.8rem 0.8rem;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+
+@include mobile() {
+  .largeCard {
+    width: 100vw;
+    height: 60vh;
+    background-color: var(--clr-White);
+    padding: 10px;
+    border-radius: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .rightCard {
+    background-color: var(--clr-neutral-Very-dark-cyan);
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    margin-left: 0;
+  }
+
+  .leftCard {
+    background-color: var(--clr-White);
+    width: 80%;
+    height: 100%;
+    margin-bottom: 0.5em;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .titleHeading {
+    display: none;
+  }
+
+  .selectTipSection {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .selectTipSection > * {
+    flex: 1 1 1em;
+  }
+}
+
+@include tablet {
+  .largeCard {
+    width: 80vw;
+    height: 50vh;
     background-color: var(--clr-White);
     border-radius: 2.5rem;
     padding: 3rem;
     display: flex;
     justify-content: center;
-}
+  }
 
-.rightCard {
+  .rightCard {
     background-color: var(--clr-neutral-Very-dark-cyan);
-    margin-left: 3rem;
+    margin-left: 0;
     display: flex;
     flex-direction: column;
     width: 50%;
     height: 100%;
     padding: 2.5rem;
     border-radius: 1.25rem;
+  }
+  .leftCard .numberDisplay {
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    background-color: inherit;
+    text-align: right;
+    font-family: var(--ff-primary);
+    color: var(--clr-neutral-Very-dark-cyan);
+  }
 
-    .resultsCardWrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
+  .leftCard {
+    margin-right: 2em;
+  }
 
-    .resultsAmount {
-        font-size: 48px;
-        font-weight: bold;
-        color: var(--clr-primary-Strong-cyan);
-    }
-
-    .resultsDesc {
-        color: var(--clr-White);
-        text-align: left;
-    }
-    .greySubText {
-        color: #7f9d9f;
-    }
-
-    .resetButton {
-        width: 100%;
-        font-family: var(--ff-primary);
-        font-size: 20px;
-        font-weight: bold;
-        text-transform: uppercase;
-        background-color: var(--clr-primary-Strong-cyan);
-        border: none;
-        padding: 1rem 2rem;
-        border-radius: 0.65rem;
-        margin-top: auto;
-    }
-}
-.leftCard {
-    background-color: var(--clr-White);
-    width: 50%;
-    height: 100%;
-    font-size: 24px;
-    display: flex;
+  .resultsCardWrapper {
     flex-direction: column;
-    justify-content: space-between;
-
-    .section {
-        text-align: left;
-    }
-
-    .numberDisplay {
-        font-size: 24px;
-        font-weight: bold;
-        border: none;
-        background-color: inherit;
-        text-align: right;
-        font-family: var(--ff-primary);
-        color: var(--clr-neutral-Very-dark-cyan);
-    }
-
-    .leftDescriptor {
-        color: var(--clr-neutral-Very-dark-cyan);
-        margin-bottom: 0.5rem;
-        font-size: 16px;
-    }
-
-    .billAndAmountSection,
-    .numberOfPeopleSection {
-        .displayLine {
-            background-color: var(--clr-neutral-light-background-text-box);
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding: 0.5rem 1.063rem;
-            font-size: 24px;
-        }
-    }
-
-    .selectTipSection {
-        .tipButton {
-            font-family: inherit;
-            font-size: inherit;
-            border: none;
-            background-color: var(--clr-neutral-Very-dark-cyan);
-            color: white;
-            border-radius: 0.75rem;
-            width: 31%;
-            margin: 0.6rem 0.3rem;
-            padding: 0.8rem 0.8rem;
-            text-align: center;
-            cursor: pointer;
-        }
-        .customTipButton {
-            font-family: inherit;
-            font-size: inherit;
-            border: none;
-            background-color: var(--clr-neutral-background-light-cyan);
-            color: var(--clr-neutral-dark-grayish-cyan);
-            border-radius: 0.75rem;
-            width: 31%;
-            margin: 0.6rem 0.3rem;
-            padding: 0.8rem 0.8rem;
-            text-align: center;
-            cursor: pointer;
-        }
-        .selectedButton {
-            font-family: inherit;
-            font-weight: bold;
-            font-size: inherit;
-            border: none;
-            background-color: var(--clr-primary-Strong-cyan);
-            color: var(--clr-neutral-Very-dark-cyan);
-            border-radius: 0.75rem;
-            width: 31%;
-            margin: 0.6rem 0.3rem;
-            padding: 0.8rem 0.8rem;
-            text-align: center;
-            cursor: pointer;
-        }
-    }
-}
-@media screen and (max-width: 40em) {
-    .largeCard {
-        width: 100vw;
-        height: 60vh;
-        background-color: var(--clr-White);
-        padding: 0;
-        border-radius: 2.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .selectTipSection {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-    .selectTipSection > * {
-        flex: 1 1 1em;
-    }
+  }
 }
